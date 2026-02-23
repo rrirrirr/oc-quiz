@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curling Quiz 🥌</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            color: #fff;
+            padding: 20px;
+        }
+        
+        .container { max-width: 800px; margin: 0 auto; }
+        
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            border-bottom: 2px solid rgba(255,255,255,0.1);
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .subtitle { color: #888; font-size: 1.1rem; }
+        
+        .nav-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .nav-tab {
+            padding: 12px 24px;
+            background: rgba(255,255,255,0.1);
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+        
+        .nav-tab:hover { background: rgba(255,255,255,0.2); }
+        .nav-tab.active { background: #4a90d9; }
+        
+        .section { display: none; }
+        .section.active { display: block; }
+        
+        .quiz-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .quiz-number {
+            background: #4a90d9;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+        
+        .quiz-date { color: #888; font-size: 0.9rem; }
+        
+        .question {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+        
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .option {
+            padding: 16px 20px;
+            background: rgba(255,255,255,0.08);
+            border: 2px solid transparent;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .option:hover:not(.disabled) {
+            background: rgba(255,255,255,0.15);
+            border-color: rgba(255,255,255,0.3);
+        }
+        
+        .option.selected { border-color: #4a90d9; background: rgba(74,144,217,0.2); }
+        .option.correct { border-color: #4ade80; background: rgba(74,222,128,0.2); }
+        .option.wrong { border-color: #f87171; background: rgba(248,113,113,0.2); }
+        .option.disabled { cursor: default; opacity: 0.7; }
+        
+        .option-letter {
+            background: rgba(255,255,255,0.2);
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .answer-reveal {
+            margin-top: 25px;
+            padding: 20px;
+            background: rgba(74,144,217,0.1);
+            border-radius: 12px;
+            border-left: 4px solid #4a90d9;
+            display: none;
+        }
+        
+        .answer-reveal.show { display: block; }
+        .answer-reveal h4 { color: #4a90d9; margin-bottom: 10px; }
+        
+        .next-btn {
+            margin-top: 20px;
+            padding: 14px 32px;
+            background: #4a90d9;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+        
+        .next-btn:hover { background: #3a7bc8; }
+        
+        .results-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .score-display {
+            font-size: 5rem;
+            font-weight: bold;
+            margin: 20px 0;
+            color: #4a90d9;
+        }
+        
+        .score-text { font-size: 1.2rem; color: #888; margin-bottom: 30px; }
+        
+        .result-message {
+            font-size: 1.3rem;
+            padding: 20px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 12px;
+            margin-top: 20px;
+        }
+        
+        .archive-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .archive-item {
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .archive-item:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateX(5px);
+        }
+        
+        .archive-title { font-size: 1.1rem; font-weight: 600; }
+        .archive-meta { color: #888; font-size: 0.9rem; }
+        
+        .loading {
+            text-align: center;
+            padding: 60px;
+            color: #888;
+        }
+        
+        .error {
+            background: rgba(248,113,113,0.2);
+            border: 1px solid #f87171;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+        }
+        
+        @media (max-width: 600px) {
+            h1 { font-size: 2rem; }
+            .quiz-card { padding: 20px; }
+            .question { font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🥌 Curling Quiz</h1>
+            <p class="subtitle">Testa dina kunskaper om curling-databasen</p>
+        </header>
+        
+        <nav class="nav-tabs">
+            <button class="nav-tab active" onclick="showSection('current')">Aktuellt Quiz</button>
+            <button class="nav-tab" onclick="showSection('archive')">Arkiv</button>
+        </nav>
+        
+        <section id="current" class="section active">
+            <div id="quiz-container">
+                <div class="loading">Laddar quiz...</div>
+            </div>
+        </section>
+        
+        <section id="archive" class="section">
+            <h2 style="margin-bottom: 20px;">Tidigare Quiz</h2>
+            <div id="archive-list" class="archive-list">
+                <div class="loading">Laddar arkiv...</div>
+            </div>
+        </section>
+    </div>
+    
+    <script>
+        let quizzes = [];
+        let currentQuiz = 0;
+        let currentQuestion = 0;
+        let score = 0;
+        let answered = false;
+        
+        // Load quiz data from JSON file
+        async function loadQuizData() {
+            try {
+                const response = await fetch('quiz-data.json');
+                if (!response.ok) throw new Error('Kunde inte ladda quiz-data');
+                quizzes = await response.json();
+                
+                if (quizzes.length > 0) {
+                    loadQuiz(0);
+                    loadArchive();
+                } else {
+                    showError('Inga quiz tillgängliga');
+                }
+            } catch (error) {
+                showError('Fel vid laddning: ' + error.message);
+                console.error(error);
+            }
+        }
+        
+        function showError(message) {
+            document.getElementById('quiz-container').innerHTML = `
+                <div class="error">
+                    <h3>😬 Oops!</h3>
+                    <p>${message}</p>
+                </div>
+            `;
+        }
+        
+        function showSection(section) {
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+            document.getElementById(section).classList.add('active');
+            
+            document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+        
+        function loadQuiz(quizIndex) {
+            currentQuiz = quizIndex;
+            currentQuestion = 0;
+            score = 0;
+            showQuestion();
+        }
+        
+        function showQuestion() {
+            const quiz = quizzes[currentQuiz];
+            const q = quiz.questions[currentQuestion];
+            const container = document.getElementById('quiz-container');
+            
+            answered = false;
+            
+            container.innerHTML = `
+                <div class="quiz-card">
+                    <div class="quiz-header">
+                        <span class="quiz-number">Fråga ${currentQuestion + 1} / ${quiz.questions.length}</span>
+                        <span class="quiz-date">${quiz.title}</span>
+                    </div>
+                    
+                    <h3 class="question">${q.question}</h3>
+                    
+                    <div class="options">
+                        ${q.options.map((opt, i) => `
+                            <div class="option" onclick="selectOption(${i})" data-index="${i}">
+                                <span class="option-letter">${String.fromCharCode(65 + i)}</span>
+                                <span>${opt}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                    
+                    <div class="answer-reveal" id="reveal">
+                        <h4>✓ Rätt svar: ${q.options[q.correct]}</h4>
+                        <p>${q.explanation}</p>
+                    </div>
+                    
+                    ${currentQuestion < quiz.questions.length - 1 ? 
+                        `<button class="next-btn" id="next-btn" style="display:none;" onclick="nextQuestion()">Nästa fråga →</button>` :
+                        `<button class="next-btn" id="next-btn" style="display:none;" onclick="showResults()">Se resultat →</button>`
+                    }
+                </div>
+            `;
+        }
+        
+        function selectOption(index) {
+            if (answered) return;
+            answered = true;
+            
+            const quiz = quizzes[currentQuiz];
+            const q = quiz.questions[currentQuestion];
+            const options = document.querySelectorAll('.option');
+            
+            options.forEach((opt, i) => {
+                opt.classList.add('disabled');
+                if (i === q.correct) {
+                    opt.classList.add('correct');
+                } else if (i === index && i !== q.correct) {
+                    opt.classList.add('wrong');
+                }
+            });
+            
+            if (index === q.correct) {
+                score++;
+            }
+            
+            document.getElementById('reveal').classList.add('show');
+            document.getElementById('next-btn').style.display = 'inline-block';
+        }
+        
+        function nextQuestion() {
+            currentQuestion++;
+            showQuestion();
+        }
+        
+        function showResults() {
+            const quiz = quizzes[currentQuiz];
+            const container = document.getElementById('quiz-container');
+            const percentage = Math.round((score / quiz.questions.length) * 100);
+            
+            let message = '';
+            let emoji = '';
+            if (score === quiz.questions.length) {
+                message = 'Du är curling-databasens gud!';
+                emoji = '🏆';
+            } else if (score >= quiz.questions.length * 0.7) {
+                message = 'Stark insats, men inte Edin-nivå än';
+                emoji = '⭐';
+            } else if (score >= quiz.questions.length * 0.4) {
+                message = 'Godkänt, men du behöver sopa mer';
+                emoji = '👍';
+            } else {
+                message = 'Du har grus i skorna, kompis';
+                emoji = '😬';
+            }
+            
+            container.innerHTML = `
+                <div class="results-card">
+                    <h2>Quiz avslutat!</h2>
+                    <div class="score-display">${score}/${quiz.questions.length}</div>
+                    <p class="score-text">${percentage}% rätt</p>
+                    <div class="result-message">${emoji} ${message}</div>
+                    <button class="next-btn" onclick="showQuizSelector()" style="margin-top: 30px;">Välj annat quiz</button>
+                    <button class="next-btn" onclick="loadQuiz(${currentQuiz})" style="margin-top: 10px; background: rgba(255,255,255,0.2);">Spela igen</button>
+                </div>
+            `;
+        }
+        
+        function showQuizSelector() {
+            showSection('archive');
+            document.querySelectorAll('.nav-tab')[1].classList.add('active');
+            document.querySelectorAll('.nav-tab')[0].classList.remove('active');
+        }
+        
+        function loadArchive() {
+            const list = document.getElementById('archive-list');
+            list.innerHTML = quizzes.map((q, i) => `
+                <div class="archive-item" onclick="startQuizFromArchive(${i})">
+                    <div>
+                        <div class="archive-title">${q.title}</div>
+                        <div class="archive-meta">${q.date} • ${q.questions.length} frågor</div>
+                    </div>
+                    <span style="font-size: 1.5rem;">→</span>
+                </div>
+            `).join('');
+        }
+        
+        function startQuizFromArchive(index) {
+            loadQuiz(index);
+            showSection('current');
+            document.querySelectorAll('.nav-tab')[0].classList.add('active');
+            document.querySelectorAll('.nav-tab')[1].classList.remove('active');
+        }
+        
+        // Load data on page load
+        loadQuizData();
+    </script>
+</body>
+</html>
