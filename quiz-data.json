@@ -1,5 +1,69 @@
 [
   {
+    "id": "20260223182358",
+    "title": "Dynamiskt Quiz 2026-02-23",
+    "date": "2026-02-23",
+    "questions": [
+      {
+        "question": "I inbördes möten mellan Granbom och Nyman - vilket lag leder?",
+        "options": [
+          "Hasselborg",
+          "Edin",
+          "Nyman",
+          "Nygren"
+        ],
+        "correct": 2,
+        "explanation": "Nyman har vunnit 3 matcher mot Granboms 1."
+      },
+      {
+        "question": "Vilket lag har flest vinster i Baden Masters?",
+        "options": [
+          "Michel",
+          "Murdoch",
+          "Ulsrud",
+          "Brewster"
+        ],
+        "correct": 3,
+        "explanation": "Brewster har 6 vinster i turneringen."
+      },
+      {
+        "question": "Vilket lag vann med störst marginal (32 poäng)?",
+        "options": [
+          "Manitoba",
+          "Nunavut",
+          "Edin",
+          "Wranå"
+        ],
+        "correct": 0,
+        "explanation": "Manitoba krossade Nunavut med 32 poängs marginal!"
+      },
+      {
+        "question": "Vilket år debuterade Nyman i databasen?",
+        "options": [
+          "2023",
+          "2026",
+          "2024",
+          "2025"
+        ],
+        "correct": 2,
+        "explanation": "Nyman dök upp första gången 2024-08-29."
+      },
+      {
+        "question": "Vad har Nygren för vinstprocent i databasen?",
+        "options": [
+          "63%",
+          "38%",
+          "53%",
+          "48%"
+        ],
+        "correct": 2,
+        "explanation": "Nygren har 20 vinster på 38 matcher = 53% vinstprocent."
+      }
+    ],
+    "generated": true,
+    "image_url": "https://image.pollinations.ai/prompt/Cute%20anime%20girl%20waifu%20with%20curling%20broom%2C%20blue%20and%20white%20uniform%2C%20ice%20arena%20background%2C%20confident%20pose%2C%20sparkling%20eyes%2C%20high%20quality?width=512&height=512&nologo=true"
+  },
+  {
     "id": "20260223172602",
     "title": "Dynamiskt Quiz 2026-02-23",
     "date": "2026-02-23",
@@ -199,46 +263,6 @@
         ],
         "correct": 2,
         "explanation": "Bobby Lammie med 73,5% (512 vinster på 697 matcher). Niklas Edin är först på plats ~25 med 66,8%!"
-      }
-    ]
-  },
-  {
-    "id": 3,
-    "title": "Svensk Curling",
-    "date": "2026-02-23",
-    "questions": [
-      {
-        "question": "Vad har Daniel Magnusson för vinstprocent i databasen?",
-        "options": [
-          "35%",
-          "42%",
-          "49,7%",
-          "55%"
-        ],
-        "correct": 2,
-        "explanation": "49,7% — 72 vinster, 73 förluster på 145 matcher. Nästan exakt 50/50!"
-      },
-      {
-        "question": "Vem har spelat med flest olika lagkamrater i databasen?",
-        "options": [
-          "Fredrik Nyman",
-          "Sebastien Robillard",
-          "Derek Samagalski",
-          "Niklas Edin"
-        ],
-        "correct": 1,
-        "explanation": "Sebastien Robillard med 45 unika lagkamrater. Fredrik Nyman har 17 (bäst bland svenskarna)."
-      },
-      {
-        "question": "Hur många unika spelare finns i databasen?",
-        "options": [
-          "~5 000",
-          "~8 000",
-          "~11 000",
-          "~15 000"
-        ],
-        "correct": 2,
-        "explanation": "Exakt 11 169 unika spelare!"
       }
     ]
   }
