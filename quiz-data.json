@@ -1,24 +1,101 @@
 [
   {
+    "id": "20260223132427",
+    "title": "Dynamiskt Quiz 2026-02-23",
+    "date": "2026-02-23",
+    "questions": [
+      {
+        "question": "I inbördes möten mellan Nyman och Markusson - vilket lag leder?",
+        "options": [
+          "Sundgren",
+          "Hasselborg",
+          "Eriksson",
+          "Nyman"
+        ],
+        "correct": 3,
+        "explanation": "Nyman har vunnit 2 matcher mot Markussons 0."
+      },
+      {
+        "question": "Vilket lag har flest vinster i Elitserien 2025/26 - Solleftea?",
+        "options": [
+          "Westerboyz",
+          "Burning Goats"
+        ],
+        "correct": 1,
+        "explanation": "Burning Goats har 1 vinster i turneringen."
+      },
+      {
+        "question": "Vad är den högsta kombinerade poängsumman i en match?",
+        "options": [
+          "36",
+          "33",
+          "34",
+          "39"
+        ],
+        "correct": 2,
+        "explanation": "Matchen mellan Manitoba och Nunavut hade 33-1, totalt 34 poäng!"
+      },
+      {
+        "question": "Vilket år debuterade Nygren i databasen?",
+        "options": [
+          "2022",
+          "2024",
+          "2025",
+          "2023"
+        ],
+        "correct": 3,
+        "explanation": "Nygren dök upp första gången 2023-02-01."
+      },
+      {
+        "question": "Vad har Edin för vinstprocent i databasen?",
+        "options": [
+          "75%",
+          "85%",
+          "70%",
+          "80%"
+        ],
+        "correct": 3,
+        "explanation": "Edin har 8 vinster på 10 matcher = 80% vinstprocent."
+      }
+    ],
+    "generated": true,
+    "image_url": "https://image.pollinations.ai/prompt/Anime%20waifu%20girl%20in%20blue%20and%20white%20curling%20outfit%2C%20holding%20curling%20stone%2C%20excited%20quiz%20host%20pose%2C%20sparkles%2C%20ice%20rink%20background%2C%20kawaii%20style%2C%20high%20quality?width=512&height=512&nologo=true"
+  },
+  {
     "id": 1,
     "title": "Fredrik Nyman Special",
     "date": "2026-02-23",
     "questions": [
       {
         "question": "Vad var resultatet i Fredrik Nymans största förlust?",
-        "options": ["0-8", "0-9", "1-10", "2-11"],
+        "options": [
+          "0-8",
+          "0-9",
+          "1-10",
+          "2-11"
+        ],
         "correct": 1,
         "explanation": "0-9 mot Mike McEwen, 3 november 2017 i Ashley Home Store Curling Classic, Penticton, Kanada."
       },
       {
         "question": "Med vem har Fredrik Nyman spelat flest matcher?",
-        "options": ["Patric Mabergs", "Simon Olofsson", "Johannes Patz", "Albin Eriksson"],
+        "options": [
+          "Patric Mabergs",
+          "Simon Olofsson",
+          "Johannes Patz",
+          "Albin Eriksson"
+        ],
         "correct": 2,
         "explanation": "Johannes Patz — 406 matcher tillsammans i 77 olika lagkonstellationer!"
       },
       {
         "question": "Hur många turneringar har Fredrik Nyman 'nollat' (0 vinster)?",
-        "options": ["2", "4", "6", "8"],
+        "options": [
+          "2",
+          "4",
+          "6",
+          "8"
+        ],
         "correct": 1,
         "explanation": "4 turneringar: HearingLife Tour Challenge Tier 2 (0-4), Challenge Casino de Charlevoix (0-3), 2.0 Cup Basel (0-2), CCT Aberdeen (0-2)"
       }
@@ -31,19 +108,34 @@
     "questions": [
       {
         "question": "Vem har spelat flest matcher i databasen?",
-        "options": ["Niklas Edin", "B.J. Neufeld", "Mike McEwen", "Oskar Eriksson"],
+        "options": [
+          "Niklas Edin",
+          "B.J. Neufeld",
+          "Mike McEwen",
+          "Oskar Eriksson"
+        ],
         "correct": 0,
         "explanation": "Niklas Edin med 1 110 matcher (800 vinster, 398 förluster = 72% vinstprocent)"
       },
       {
         "question": "Vem har BÄST poängdifferential i databasen?",
-        "options": ["Niklas Edin", "Mike McEwen", "B.J. Neufeld", "Bobby Lammie"],
+        "options": [
+          "Niklas Edin",
+          "Mike McEwen",
+          "B.J. Neufeld",
+          "Bobby Lammie"
+        ],
         "correct": 2,
         "explanation": "B.J. Neufeld med +1 876 (6 295 gjort, 4 419 insläppt)"
       },
       {
         "question": "Vem har högst vinstprocent (minst 300 matcher)?",
-        "options": ["Niklas Edin", "B.J. Neufeld", "Bobby Lammie", "Brad Gushue"],
+        "options": [
+          "Niklas Edin",
+          "B.J. Neufeld",
+          "Bobby Lammie",
+          "Brad Gushue"
+        ],
         "correct": 2,
         "explanation": "Bobby Lammie med 73,5% (512 vinster på 697 matcher). Niklas Edin är först på plats ~25 med 66,8%!"
       }
@@ -56,19 +148,34 @@
     "questions": [
       {
         "question": "Vad har Daniel Magnusson för vinstprocent i databasen?",
-        "options": ["35%", "42%", "49,7%", "55%"],
+        "options": [
+          "35%",
+          "42%",
+          "49,7%",
+          "55%"
+        ],
         "correct": 2,
         "explanation": "49,7% — 72 vinster, 73 förluster på 145 matcher. Nästan exakt 50/50!"
       },
       {
         "question": "Vem har spelat med flest olika lagkamrater i databasen?",
-        "options": ["Fredrik Nyman", "Sebastien Robillard", "Derek Samagalski", "Niklas Edin"],
+        "options": [
+          "Fredrik Nyman",
+          "Sebastien Robillard",
+          "Derek Samagalski",
+          "Niklas Edin"
+        ],
         "correct": 1,
         "explanation": "Sebastien Robillard med 45 unika lagkamrater. Fredrik Nyman har 17 (bäst bland svenskarna)."
       },
       {
         "question": "Hur många unika spelare finns i databasen?",
-        "options": ["~5 000", "~8 000", "~11 000", "~15 000"],
+        "options": [
+          "~5 000",
+          "~8 000",
+          "~11 000",
+          "~15 000"
+        ],
         "correct": 2,
         "explanation": "Exakt 11 169 unika spelare!"
       }
