@@ -1,5 +1,66 @@
 [
   {
+    "id": "20260223172602",
+    "title": "Dynamiskt Quiz 2026-02-23",
+    "date": "2026-02-23",
+    "questions": [
+      {
+        "question": "I inbördes möten mellan Eriksson och Nyman - vilket lag leder?",
+        "options": [
+          "Markusson",
+          "Nygren",
+          "Eriksson",
+          "Sundgren"
+        ],
+        "correct": 2,
+        "explanation": "Eriksson har vunnit 1 matcher mot Nymans 0."
+      },
+      {
+        "question": "Vilket lag har flest vinster i Baden Masters?",
+        "options": [
+          "Pfister",
+          "Ulsrud",
+          "Attinger",
+          "Walstad"
+        ],
+        "correct": 1,
+        "explanation": "Ulsrud har 6 vinster i turneringen."
+      },
+      {
+        "question": "Vilket lag har flest vinster totalt i hela databasen?",
+        "options": [
+          "Ontario"
+        ],
+        "correct": 0,
+        "explanation": "Ontario har hela 21 vinster totalt!"
+      },
+      {
+        "question": "Vilket år debuterade Edin i databasen?",
+        "options": [
+          "2015",
+          "2018",
+          "2017",
+          "2016"
+        ],
+        "correct": 3,
+        "explanation": "Edin dök upp första gången 2016-01-21."
+      },
+      {
+        "question": "Vad har Granbom för vinstprocent i databasen?",
+        "options": [
+          "87%",
+          "97%",
+          "82%",
+          "92%"
+        ],
+        "correct": 3,
+        "explanation": "Granbom har 12 vinster på 13 matcher = 92% vinstprocent."
+      }
+    ],
+    "generated": true,
+    "image_url": "https://image.pollinations.ai/prompt/Cute%20anime%20girl%20waifu%20with%20curling%20broom%2C%20blue%20and%20white%20uniform%2C%20ice%20arena%20background%2C%20confident%20pose%2C%20sparkling%20eyes%2C%20high%20quality?width=512&height=512&nologo=true"
+  },
+  {
     "id": "20260223132427",
     "title": "Dynamiskt Quiz 2026-02-23",
     "date": "2026-02-23",
